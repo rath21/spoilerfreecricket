@@ -77,7 +77,7 @@ export default function Home() {
         {filteredMatches.map(match => (
           <div key={match.id} className="bg-white rounded-xl shadow p-4">
             {/* Match info row */}
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <div className="text-sm text-gray-500">{match.date}</div>
               <div className="text-lg font-medium">{match.teams}</div>
               <div>
