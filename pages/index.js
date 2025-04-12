@@ -75,22 +75,26 @@ export default function Home() {
       {/* Match list */}
       <div className="grid gap-6 max-w-3xl mx-auto">
         {filteredMatches.map(match => (
-          <div key={match.id} className="bg-white rounded-xl shadow p-4 flex justify-between items-center">
-            <div>
-              <span className="text-sm text-gray-500">{match.date}</span>
-              <br />
-              <span className="text-lg font-medium">{match.teams}</span>
+          <div key={match.id} className="bg-white rounded-xl shadow p-4 flex justify-between items-center mb-6">
+            {/* Match info row */}
+            <div className="flex justify-between w-full">
+              <div className="flex-1 text-sm text-gray-500">{match.date}</div>
+              <div className="flex-2 text-lg font-medium text-center">{match.teams}</div>
+              <div className="flex-1 text-right">
+                <a
+                  href={match.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                >
+                  Watch Highlights
+                </a>
+              </div>
             </div>
-            <div className="flex items-center gap-3">
-              <a
-                href={match.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-              >
-                Watch Highlights
-              </a>
-              <span className="text-sm text-gray-500 italic">Click & close eyes for 1 sec to avoid spoilers</span>
+
+            {/* Spoiler text */}
+            <div className="text-sm text-gray-500 text-center mt-2 italic">
+              Click & close eyes for 1 sec to avoid spoilers
             </div>
           </div>
         ))}
