@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Home() {
+  const [selectedTeam, setSelectedTeam] = useState(""); // State to track the selected team
+
   const matches = [
     { id: 1, teams: "KKR vs RCB - Mar 22", link: "https://www.iplt20.com/video/58794/ipl-2025-m01-kkr-vs-rcb---match-highlights?tagNames=2025" },
     { id: 2, teams: "SRH vs RR - Mar 23", link: "https://www.iplt20.com/video/58864/ipl-2025-m02-srh-vs-rr---match-highlights?tagNames=2025" },
@@ -39,14 +43,45 @@ export default function Home() {
     { id: 37, teams: "PK vs RCB - Apr 20", link: "https://www.iplt20.com/videos/highlights" },
   ];
 
+  // Filter matches based on selected team
+  const filteredMatches = selectedTeam
+    ? matches.filter(match => match.teams.includes(selectedTeam))
+    : matches;
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-center mb-6">Spoiler-Free IPL Highlights</h1>
+
+      {/* Dropdown filter */}
+      <div className="mb-6 text-center">
+        <select
+          onChange={(e) => setSelectedTeam(e.target.value)}
+          className="border border-gray-300 rounded-md p-2"
+        >
+          <option value="">Select a Team</option>
+          <option value="KKR">KKR</option>
+          <option value="RCB">RCB</option>
+          <option value="SRH">SRH</option>
+          <option value="RR">RR</option>
+          <option value="CSK">CSK</option>
+          <option value="MI">MI</option>
+          <option value="GT">GT</option>
+          <option value="DC">DC</option>
+          <option value="LSG">LSG</option>
+          <option value="PK">PK</option>
+        </select>
+      </div>
+
+      {/* Match list */}
       <div className="grid gap-6 max-w-3xl mx-auto">
-        {matches.map(match => (
+        {filteredMatches.map(match => (
           <div key={match.id} className="bg-white rounded-xl shadow p-4 flex justify-between items-center">
-            <span className="text-lg font-medium">{match.teams}</span>
-            <div className="flex items-center gap-2">
+            <div>
+              <span className="text-sm text-gray-500">{match.date}</span>
+              <br />
+              <span className="text-lg font-medium">{match.teams}</span>
+            </div>
+            <div className="flex items-center gap-3">
               <a
                 href={match.link}
                 target="_blank"
