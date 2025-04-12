@@ -73,14 +73,14 @@ export default function Home() {
       </div>
 
       {/* Match list */}
-      <div className="grid gap-6 max-w-3xl mx-auto">
+      <div className="space-y-6 max-w-3xl mx-auto">
         {filteredMatches.map(match => (
-          <div key={match.id} className="bg-white rounded-xl shadow p-4 flex justify-between items-center mb-6">
+          <div key={match.id} className="bg-white rounded-xl shadow p-4">
             {/* Match info row */}
-            <div className="flex justify-between w-full">
-              <div className="flex-1 text-sm text-gray-500">{match.date}</div>
-              <div className="flex-2 text-lg font-medium text-center">{match.teams}</div>
-              <div className="flex-1 text-right">
+            <div className="flex justify-between items-center">
+              <div className="text-sm text-gray-500">{match.date}</div>
+              <div className="text-lg font-medium">{match.teams}</div>
+              <div>
                 <a
                   href={match.link}
                   target="_blank"
