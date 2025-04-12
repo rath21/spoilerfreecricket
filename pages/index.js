@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 export default function Home() {
   const matches = [
     { id: 1, teams: "KKR vs RCB - Mar 22", link: "https://www.iplt20.com/video/58794/ipl-2025-m01-kkr-vs-rcb---match-highlights?tagNames=2025" },
@@ -42,41 +40,26 @@ export default function Home() {
   ];
 
   return (
-    <>
-      <Head>
-        <title>Spoiler-Free IPL Highlights</title>
-        <meta name="description" content="Watch IPL 2025 match highlights without spoilers. Stay up-to-date without ruining the game!" />
-        <meta name="keywords" content="IPL, spoiler free, IPL highlights, spoiler-free cricket, ipl 2025 highlights, cricket, ipl, free, freeipl" />
-        <meta name="author" content="spoiler-hater" />
-        <meta property="og:title" content="Spoiler-Free IPL Highlights" />
-        <meta property="og:description" content="Watch IPL 2025 match highlights without spoilers." />
-        <meta property="og:url" content="https://spoilerfreecricket.vercel.app/" />
-        <meta name="robots" content="index, follow" />
-      </Head>
-
-      <div className="min-h-screen bg-gray-100 p-6">
-        <h1 className="text-3xl font-bold text-center mb-6">Spoiler-Free IPL Highlights</h1>
-        <div className="grid gap-6 max-w-3xl mx-auto">
-          {matches.map(match => (
-            <div key={match.id} className="bg-white rounded-xl shadow p-4 flex justify-between items-center">
-              <span className="text-lg font-medium">{match.teams}</span>
-              <div className="flex flex-col items-end">
-                <a
-                  href={match.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                >
-                  Watch Highlights
-                </a>
-                <p className="text-sm text-gray-500 mt-1 italic">
-                  Tip: Click the link and close your eyes for the first second to avoid spoilers.
-                </p>
-              </div>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold text-center mb-6">Spoiler-Free IPL Highlights</h1>
+      <div className="grid gap-6 max-w-3xl mx-auto">
+        {matches.map(match => (
+          <div key={match.id} className="bg-white rounded-xl shadow p-4 flex justify-between items-center">
+            <span className="text-lg font-medium">{match.teams}</span>
+            <div className="flex items-center gap-2">
+              <a
+                href={match.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              >
+                Watch Highlights
+              </a>
+              <span className="text-sm text-gray-500 italic">Click & close eyes for 1 sec to avoid spoilers</span>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
