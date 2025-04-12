@@ -47,9 +47,17 @@ export default function Home() {
         {matches.map(match => (
           <div key={match.id} className="bg-white rounded-xl shadow p-4 flex justify-between items-center">
             <span className="text-lg font-medium">{match.teams}</span>
-            <a href={match.link} target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-              Watch Highlights
-            </a>
+            <div className="flex flex-col items-end">
+  <a
+    href={match.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+  >
+    Watch Highlights
+  </a>
+  <p className="text-sm text-gray-500 mt-1 italic">Tip: Skip the first second to avoid spoilers.</p>
+</div>
           </div>
         ))}
       </div>
