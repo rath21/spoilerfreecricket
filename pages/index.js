@@ -43,7 +43,7 @@ export default function Home() {
     { id: 37, date: "Apr 20, 2025", teams: "PK vs RCB", link: "https://www.iplt20.com/videos/highlights" },
   ];
 
-  // Filter matches based on selected team
+   // Filter matches based on selected team
   const filteredMatches = selectedTeam
     ? matches.filter(match => match.teams.includes(selectedTeam))
     : matches;
@@ -76,7 +76,7 @@ export default function Home() {
       <div className="space-y-6 max-w-3xl mx-auto">
         {filteredMatches.map(match => (
           <div key={match.id} className="bg-white rounded-xl shadow p-4">
-            {/* Match info row */}
+            {/* Match info on same line */}
             <div className="flex justify-between items-center">
               <div className="text-sm text-gray-500">{match.date}</div>
               <div className="text-lg font-medium">{match.teams}</div>
@@ -92,7 +92,10 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Spoiler text */}
+            {/* Empty line before next match */}
+            <div className="mt-6"></div>
+
+            {/* Spoiler message */}
             <div className="text-sm text-gray-500 text-center mt-2 italic">
               Click & close eyes for 1 sec to avoid spoilers
             </div>
