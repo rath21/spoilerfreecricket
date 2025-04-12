@@ -56,7 +56,7 @@ export default function Home() {
   >
     Watch Highlights
   </a>
-  <p className="text-sm text-gray-500 mt-1 italic">Tip: Click below and close your eyes for the first second to avoid spoilers.</p>
+  <p className="text-sm text-gray-500 mt-1 italic">Tip: Click the link and close your eyes for the first second to avoid spoilers.</p>
 </div>
           </div>
         ))}
